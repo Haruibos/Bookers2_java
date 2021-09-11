@@ -1,6 +1,8 @@
 class BooksController < ApplicationController
   before_action :authenticate_user!
   before_action :ensure_correct_user, only: [:edit, :update, :destroy]
+  # 現在ログインしているユーザーをモデルオブジェクトとして利用できます。
+  # 関連付けがされている場合、子要素・親要素の取得などが可能です。
 
   def show
     @book = Book.find(params[:id])
